@@ -1,2 +1,3 @@
 # contact-list-cpp
 A simple contact list written entirely in C++
+side note: this project is incomplete....
