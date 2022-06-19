@@ -26,7 +26,7 @@ void contact::append(){
     std::cout<<"Writing to the file\n";
     std::cout<<"Please enter the name\n";
     std::getline(std::cin, name);
-    cnt << "Name: " << name << std::endl;
+    cnt <<name << std::endl;
     
     bool flag=true;
       while (flag){
