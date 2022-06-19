@@ -16,6 +16,31 @@ public:
   void search();
 };
 
+void contact::deletec(){
+  std::string find;
+  std::string line;
+  std::cin.ignore();
+    std::cout<<"Please enter the name u wanna delete\n";
+  std::getline(std::cin, find);
+  std::ifstream file;
+  file.open("contacts.dat");
+
+  std::ofstream temp;
+  temp.open("temp.dat");
+  while(file>>name>>gender>>number>>address){
+    if(name == find){
+  while(getline(file, line)){
+    if (line != name)
+      temp<< line << std::endl;
+  }
+    }
+      }
+  file.close();
+  temp.close();
+  remove("contacts.dat");
+  rename("temp.dat", "contacts.dat");
+}
+
 void contact::append(){
     std::cin.ignore();
     std::ofstream cnt;
@@ -166,6 +191,10 @@ int main(){
 	  else{
 	    std::cout<<"contacts is empty\n\a";
 	  }
+	  break;
+	}
+	case 3:{
+	  cont.deletec();
 	  break;
 	}
 	case 4:{
