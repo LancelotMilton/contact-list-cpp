@@ -185,31 +185,3 @@ int main(){
 	}
      }
 }
-/*
-#+TITLE: project.org
-#+AUTHOR: Alireza
-
-* Project
-** DONE Step1 [4/4]
- - [X] inputting name
- - [X] inputting gender
- - [X] inputting number
- - [X] inputting address
-** TODO step2 [1/1]
- - [X] cat contents
-** TODO step3 [0/1]
- - [] delete a particular contact
-** TODO step4 [1/1]
- - [X] print information of a particular contact
-** TODO step5 [0/4]
- - [] edit name
- - [] edit gender
- - [] edit number
- - [] edit address
-** DONE step6 [1/1]
- - [X] Clear every contact
-** DONE step7 [1/1]
- - [X] exit program
-
-The Ends of the Faraway memories
-*/
