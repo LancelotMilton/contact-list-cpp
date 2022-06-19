@@ -14,7 +14,103 @@ public:
   void deletec();
   void deleteall();
   void search();
+  void modify();
 };
+
+void contact::modify(){
+    std::string find;
+  std::string line;
+  std::cin.ignore();
+    std::cout<<"Please enter the name u wanna edit\n";
+  std::getline(std::cin, find);
+  std::ifstream file;
+  file.open("contacts.dat");
+
+  std::ofstream temp;
+  temp.open("temp.dat");
+    if(name == find){
+    while(file>>name>>gender>>number>>address){
+  while(getline(file, line)){
+    if (line != name)
+      temp<< line << std::endl;
+  }
+    }
+    
+  file.close();
+  temp.close();
+  remove("contacts.dat");
+  rename("temp.dat", "contacts.dat");
+  
+  std::cout<<"Please enter the edited name\n";
+  std::getline(std::cin, name);
+    
+    bool flag=true;
+      while (flag){
+    std::cout<<"Plase enter the edited gender\n";
+    std::cout<<"1 ---- Male\n"<<"2 ---- female\n";
+    std::cin>>x;
+    if(std::cin.good()){
+      if(x == 1){
+	gender = "Male";
+	  flag=false;
+	  break;
+      }
+      else if(x == 2){
+	gender = "Female";
+	  flag=false;
+	  break;
+      }
+      else{
+	std::cout<<"Unvalid entry\n\a";
+      }
+    }
+    else{
+    std::cout<<"unvalid entry, please enter an integer\a"<<std::endl;
+      std::cin.clear();
+      std::cin.ignore(10000, '\n');
+    }
+      }
+
+    flag=true;
+    while(flag){
+    std::cout<< "Enter the edited number:\n";
+    std::cin >> number;
+    if(std::cin.good()){
+    try{
+      if(number == 0){
+	throw number;
+      }
+      else{
+	flag=false;
+	break;
+      }
+    }
+    catch (...){
+      std::cout<<"Unvalid entry\n\a";
+    }
+    }
+    else{
+      std::cout<<"unvalid entry, please enter an integer\a"<<std::endl;
+      std::cin.clear();
+      std::cin.ignore(10000, '\n');
+    }
+    }
+    std::cin.ignore();
+    std::cout<<"Enter the address\n";
+    std::getline(std::cin, address);
+    std::cout<<"Edited Successfully";
+    std::ofstream thisfile;
+    thisfile.open("contacts.dat", std::ofstream::app);
+    thisfile<<name<<std::endl;
+    thisfile<<gender<<std::endl;
+    thisfile<<number<<std::endl;
+    thisfile<<address<<std::endl;
+    thisfile.close();
+    }
+    else {
+      std::cout<<"NAME not found";
+    }
+}
 
 void contact::deletec(){
   std::string find;
@@ -199,6 +295,10 @@ int main(){
 	}
 	case 4:{
 	  cont.search();
+	  break;
+	}
+	case 5:{
+	  cont.modify();
 	  break;
 	}
 	case 6:{
