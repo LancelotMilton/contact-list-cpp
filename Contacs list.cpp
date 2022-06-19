@@ -1,8 +1,3 @@
-/* 
-written by Alireza Shojaei and Yasin abbasi 
-Tested using GNU C++ Compiler 
-*/
-
 #include <iostream>
 #include <fstream>
 #include <string>
