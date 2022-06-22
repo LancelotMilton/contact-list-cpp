@@ -35,7 +35,7 @@ void contact::modify(){
       temp<< line << std::endl;
   }
     }
-    
+    //a small problem: empty lines not deleted
   file.close();
   temp.close();
   remove("contacts.dat");
